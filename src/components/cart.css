@@ -1,0 +1,92 @@
+.cart-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 40px;
+}
+
+.cart-header {
+  font-family: Raleway, sans-serif;
+  text-align: center;
+  margin: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item-image {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 20px;
+}
+
+.cart-item-details {
+  flex: 1;
+  font-size: 16px;
+}
+
+.cart-item-name {
+  font-weight: bold;
+  font-family: "Raleway", sans-serif;
+}
+
+.cart-item-price {
+  margin-top: 5px;
+  margin-right: 10%;
+}
+
+.checkout-button {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin: 20px;
+  margin-left: 0px;
+  border-radius: 7px;
+}
+
+.remove-button {
+  border: none;
+  background-color: black;
+  height: 35px;
+  width: 75px;
+  color: #fff;
+  border-radius: 7px;
+}
+
+.remove-button:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+.checkout-button:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.checkout-total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-items {
+  font-size: 1.8rem;
+  font-family: "Roboto";
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.checkout-button-container {
+  display: flex;
+  justify-content: flex-end; /* This pushes the Checkout button to the right */
+  margin-top: 10px; /* Add margin-top to separate it from other content if needed */
+}

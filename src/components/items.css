@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+.product-card {
+  width: 380px; /* Set a fixed width for your product cards */
+  position: relative;
+  box-shadow: 0 2px 7px #dfdfdf;
+  margin: 20px; /* Add some margin to separate product cards */
+  background: #fafafa;
+  border-radius: 15px;
+  display: inline-block; /* Use inline-block to ensure cards don't overlap */
+}
+
+.fillerText {
+  position: absolute;
+}
+
+.product-tumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  padding: 50px;
+  background: #ffffff;
+  border-radius: 15px;
+}
+
+.product-tumb img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 15px;
+}
+
+.product-details {
+  padding: 30px;
+}
+
+.product-catagory {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ccc;
+  margin-bottom: 18px;
+}
+
+.product-details h4 a {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 18px;
+  color: #363636;
+  text-decoration: none;
+  transition: 0.3s;
+  font-family: Raleway;
+}
+
+.product-details h4 a:hover {
+  color: #000000;
+}
+
+.product-details p {
+  font-size: 15px;
+  line-height: 22px;
+  margin-bottom: 18px;
+  color: #999;
+}
+
+.product-bottom-details {
+  overflow: hidden;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.product-bottom-details div {
+  float: left;
+  width: 50%;
+}
+
+.product-price {
+  font-size: 18px;
+  color: #000000;
+  font-weight: 600;
+}
+
+.product-price small {
+  font-size: 80%;
+  font-weight: 400;
+  text-decoration: line-through;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.product-links {
+  text-align: right;
+}
+
+.product-links a {
+  display: inline-block;
+  margin-left: 5px;
+  color: #e1e1e1;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.product-links a:hover {
+  color: #000000;
+}
+
+.addToCartBtn {
+  background-color: #000;
+  color: #fff;
+  height: 35px;
+  border-radius: 7px;
+  font-family: "Roboto";
+  border: 0;
+  width: 100px;
+}
+
+.addToCartBtn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.search-bar {
+  width: 75%;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  padding: 15px;
+  margin-top: 30px;
+}
+
+.search-bar:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+.filterSortSelectDiv {
+  margin: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.filterSortSelectText {
+  font-family: Raleway;
+}
+
+.filterSortSelect {
+  width: 250px;
+  border-radius: 6px;
+  padding: 7px;
+  color: #000;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  font-family: Raleway;
+}
+
+@media (max-width: 768px) {
+  .filterSortSelect {
+    width: 150px;
+    margin: 10px;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#paginationButton {
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 0;
+  width: 35px;
+  height: 30px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 7px;
+}
+
+#paginationButton:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.paginationText {
+  text-align: center;
+  margin-top: 15px;
+  font-family: Raleway;
+  font-size: 1.5rem;
+}
