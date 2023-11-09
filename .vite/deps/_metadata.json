@@ -1,0 +1,80 @@
+{
+  "hash": "28b07d4e",
+  "browserHash": "f39ee1be",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "2aafe6e5",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "33e613dc",
+      "needsInterop": true
+    },
+    "react-firebase-hooks/auth": {
+      "src": "../../node_modules/react-firebase-hooks/auth/dist/index.esm.js",
+      "file": "react-firebase-hooks_auth.js",
+      "fileHash": "e1e3fd41",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "b5723f96",
+      "needsInterop": false
+    },
+    "firebase/app": {
+      "src": "../../node_modules/firebase/app/dist/esm/index.esm.js",
+      "file": "firebase_app.js",
+      "fileHash": "492df8b7",
+      "needsInterop": false
+    },
+    "firebase/auth": {
+      "src": "../../node_modules/firebase/auth/dist/esm/index.esm.js",
+      "file": "firebase_auth.js",
+      "fileHash": "59366525",
+      "needsInterop": false
+    },
+    "firebase/firestore": {
+      "src": "../../node_modules/firebase/firestore/dist/esm/index.esm.js",
+      "file": "firebase_firestore.js",
+      "fileHash": "1d023fbe",
+      "needsInterop": false
+    },
+    "@mui/material/Snackbar": {
+      "src": "../../node_modules/@mui/material/Snackbar/index.js",
+      "file": "@mui_material_Snackbar.js",
+      "fileHash": "8fa15ef8",
+      "needsInterop": false
+    },
+    "@mui/material/Alert": {
+      "src": "../../node_modules/@mui/material/Alert/index.js",
+      "file": "@mui_material_Alert.js",
+      "fileHash": "fd5ff463",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-PW7L6P7A": {
+      "file": "chunk-PW7L6P7A.js"
+    },
+    "chunk-VVY64P2A": {
+      "file": "chunk-VVY64P2A.js"
+    },
+    "chunk-PAFLWNYW": {
+      "file": "chunk-PAFLWNYW.js"
+    },
+    "chunk-DZXRV6RW": {
+      "file": "chunk-DZXRV6RW.js"
+    },
+    "chunk-ZAUFE7H7": {
+      "file": "chunk-ZAUFE7H7.js"
+    },
+    "chunk-UXIASGQL": {
+      "file": "chunk-UXIASGQL.js"
+    }
+  }
+}

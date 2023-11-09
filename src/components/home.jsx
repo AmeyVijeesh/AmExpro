@@ -1,38 +1,48 @@
-import { collection, addDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { db } from "../firebase";
+import img from "./images/bannerimage.png";
 import "./home.css";
+import items from "./itemsData"; // Import the items data
 
 const Home = () => {
-  const navigate = useNavigate();
-  const auth = getAuth();
-  const user = auth.currentUser;
-  const [displayName, setDisplayName] = useState("User"); // Initialize to a default value
+  const [displayedItems, setDisplayedItems] = useState([]);
+  const [displayedItems2, setDisplayedItems2] = useState([]);
+  const [displayName, setDisplayName] = useState("User");
 
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-        console.log("Signed out successfully");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  const auth = getAuth();
+  const [currentCard, setCurrentCard] = useState(0);
+
+  const itemIdsToDisplay = [8, 2, 1, 6, 13, 19, 21, 25];
+  const itemIdsToDisplay2 = [9, 4, 18, 16, 24, 7, 13, 20];
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is authenticated and data is available
         setDisplayName(user.displayName || "User");
       } else {
-        // User is not authenticated
         setDisplayName("User");
       }
     });
-    return () => unsubscribe();
+
+    const startIndex = Math.floor(
+      Math.random() * (itemIdsToDisplay.length - 4)
+    );
+    const initialItems = itemIdsToDisplay.slice(startIndex, startIndex + 4);
+
+    setDisplayedItems(items.filter((item) => initialItems.includes(item.id)));
+
+    const startIndex2 = Math.floor(
+      Math.random() * (itemIdsToDisplay2.length - 4)
+    );
+    const initialItems2 = itemIdsToDisplay2.slice(startIndex2, startIndex2 + 4);
+
+    setDisplayedItems2(items.filter((item) => initialItems2.includes(item.id)));
+
+    return () => {
+      unsubscribeAuth();
+    };
   }, [auth]);
 
   const bannerDisplay = () => {
@@ -43,44 +53,155 @@ const Home = () => {
     }
   };
 
+  const handleArrowClick = (direction) => {
+    if (direction === "next") {
+      setCurrentCard((prevCard) =>
+        prevCard === itemIdsToDisplay.length - 4 ? 0 : prevCard + 1
+      );
+    } else {
+      setCurrentCard((prevCard) =>
+        prevCard === 0 ? itemIdsToDisplay.length - 4 : prevCard - 1
+      );
+    }
+
+    const startIndex = currentCard;
+    const newItems = itemIdsToDisplay.slice(startIndex, startIndex + 4);
+
+    setDisplayedItems(items.filter((item) => newItems.includes(item.id)));
+  };
+
+  const handleArrowClick2 = (direction) => {
+    if (direction === "next") {
+      setCurrentCard((prevCard) =>
+        prevCard === itemIdsToDisplay2.length - 4 ? 0 : prevCard + 1
+      );
+    } else {
+      setCurrentCard((prevCard) =>
+        prevCard === 0 ? itemIdsToDisplay2.length - 4 : prevCard - 1
+      );
+    }
+
+    const startIndex = currentCard;
+    const newItems = itemIdsToDisplay2.slice(startIndex, startIndex + 4);
+
+    setDisplayedItems2(items.filter((item) => newItems.includes(item.id)));
+  };
+
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <>
-      <div style={{ textAlign: "center", overflowX: "hidden" }}>
-        <aside class="responsive-banner first">
-          <div class="container-envelope">
-            <svg class="cirle-a" height="160" width="160">
-              <circle cx="80" cy="80" r="80" />
-            </svg>
-            <svg class="cirle-b" height="60" width="60">
-              <circle cx="30" cy="30" r="30" />
-            </svg>
-            <svg class="cirle-c" height="600" width="600">
-              <circle cx="300" cy="300" r="300" />
-            </svg>
-            <svg class="cirle-d" height="60" width="60">
-              <circle cx="30" cy="30" r="30" />
-            </svg>
-            <img src="https://i.pinimg.com/originals/f2/d1/f9/f2d1f900f688ddca0765ec8e2d3900e1.png" />
-            <div class="col-xs-12">
-              <p className="banner-text">{bannerDisplay()}</p>
-              <a
-                target="_blank"
-                href="https://www.silocreativo.com/en/showcase/"
-                class="more-link"
-              >
-                Get started
-              </a>
+      <div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div className="banner">
+            <h3 className="banner-header">{bannerDisplay()}</h3>
+            <button className="banner-button">Get Started</button>
+          </div>
+        </div>
+        <div>
+          <h3 className="listHeader">New Arrivals</h3>
+          {isMobile && (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <button
+                onClick={() => handleArrowClick("next")}
+                className="moveBtn2"
+              >{`Next`}</button>
+              <button
+                onClick={() => handleArrowClick("prev")}
+                className="moveBtn2"
+              >{`Previous`}</button>
+            </div>
+          )}
+          <div className="product-container">
+            <div className="product-cards-container">
+              {!isMobile && (
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <button
+                    onClick={() => handleArrowClick("prev")}
+                    className="moveBtn2"
+                  >{`<`}</button>
+                </div>
+              )}
+              {displayedItems.map((item) => (
+                <div key={item.id} className="product-card1">
+                  <img
+                    src={item.imageUrl}
+                    alt={item.name}
+                    className="product-card-img1"
+                  />
+                  <h4>{item.name}</h4>{" "}
+                  <p className="product-card-price1">${item.price}</p>
+                  <span style={{ textAlign: "center" }}>
+                    <NavLink to={`/item/${item.id}`} state={{ items }}>
+                      View
+                    </NavLink>
+                  </span>
+                </div>
+              ))}
+              {!isMobile && (
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <button
+                    onClick={() => handleArrowClick("next")}
+                    className="moveBtn2"
+                  >{`>`}</button>
+                </div>
+              )}
             </div>
           </div>
-        </aside>
-      </div>
-
-      <nav>
-        <p>Welcome {displayName}!</p>
-        <div>
-          <button onClick={handleLogout}>Logout</button>
         </div>
-      </nav>
+        <div>
+          <h3 className="listHeader">Best Deals</h3>
+          {isMobile && (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <button
+                onClick={() => handleArrowClick2("next")}
+                className="moveBtn2"
+              >{`Next`}</button>
+              <button
+                onClick={() => handleArrowClick2("prev")}
+                className="moveBtn2"
+              >{`Previous`}</button>
+            </div>
+          )}
+          <div className="product-container">
+            <div className="product-cards-container">
+              {!isMobile && (
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <button
+                    onClick={() => handleArrowClick2("prev")}
+                    className="moveBtn2"
+                  >{`<`}</button>
+                </div>
+              )}
+              {displayedItems2.map((item) => (
+                <div key={item.id} className="product-card1">
+                  <img
+                    src={item.imageUrl}
+                    alt={item.name}
+                    className="product-card-img1"
+                  />
+                  <h4>{item.name}</h4>
+                  <p className="product-card-price1">${item.price}</p>
+
+                  <span style={{ textAlign: "center" }}>
+                    <NavLink to={`/item/${item.id}`} state={{ items }}>
+                      View
+                    </NavLink>
+                  </span>
+                </div>
+              ))}
+              {!isMobile && (
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <button
+                    onClick={() => handleArrowClick2("next")}
+                    className="moveBtn2"
+                  >{`>`}</button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

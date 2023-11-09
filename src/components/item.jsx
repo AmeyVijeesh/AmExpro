@@ -64,7 +64,7 @@ const ItemDetail = ({ addToCart }) => {
             >
               <span style={{ textAlign: "center" }}>{item.category}</span>
             </div>
-            <h1>{item.name}</h1>
+            <h1 style={{ textAlign: "center" }}>{item.name}</h1>
             <div
               style={{
                 display: "flex",
@@ -115,9 +115,9 @@ const ItemDetail = ({ addToCart }) => {
               justifyContent: "center",
             }}
           >
-            <a className="cart-btn" onClick={handleAddToCart}>
+            <button className="cart-btn" onClick={handleAddToCart}>
               Add to cart
-            </a>
+            </button>
           </div>
         </div>
       </div>

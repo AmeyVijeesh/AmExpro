@@ -69,7 +69,7 @@ const Navbar = ({ auth }) => {
             <div class="navbar-collapse collapse" id="mobile_menu">
               <ul class="nav navbar-nav">
                 <li>
-                  <a href="#">
+                  <a href="">
                     <NavLink to="/home">Home</NavLink>
                   </a>
                 </li>

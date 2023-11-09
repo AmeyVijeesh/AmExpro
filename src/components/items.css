@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
-@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url("https://fonts.googleapis.com/css?family=Raleway");
 
 .product-card {
   width: 380px; /* Set a fixed width for your product cards */
@@ -20,7 +20,6 @@
   align-items: center;
   justify-content: center;
   height: 300px;
-  padding: 50px;
   background: #ffffff;
   border-radius: 15px;
 }
