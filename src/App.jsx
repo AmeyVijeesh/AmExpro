@@ -10,15 +10,14 @@ import Cart from "./components/cart.jsx";
 import ItemDetail from "./components/item.jsx";
 import ForgotPassword from "./components/password";
 import Checkout from "./components/checkout.jsx";
-import UserCart from "./UserCart"; // Import the UserCart component
+import UserCart from "./UserCart";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import "mdbootstrap/css/mdb.min.css";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [user] = useAuthState(auth); // Get the authenticated user
-  //   const [cart, setCart] = useState([]);
+  const [user] = useAuthState(auth);
 
   const addToCart = (item) => {
     setCart([...cart, item]);
@@ -26,7 +25,7 @@ function App() {
 
   const handleRemoveFromCart = (item) => {
     const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
-    setCart(updatedCart); // Update the cart state
+    setCart(updatedCart);
   };
 
   return (
@@ -41,17 +40,17 @@ function App() {
             <Route path="/login" element={<Login />} />{" "}
             <Route
               path="/item/:id"
-              element={<ItemDetail addToCart={addToCart} />}
+              element={<ItemDetail addToCart={addToCart} user={user} />}
             />
             <Route
               path="/items"
-              element={<Items cart={cart} addToCart={addToCart} />}
+              element={<Items cart={cart} addToCart={addToCart} user={user} />}
             />
             <Route
               path="/cart"
               element={
                 <Cart cart={cart} removeFromCart={handleRemoveFromCart} />
-              } // Pass the cart data to the Cart component
+              }
             />{" "}
             <Route path="/user/cart" element={<UserCart user={user} />} />
             <Route path="forgot-password" element={<ForgotPassword />} />
