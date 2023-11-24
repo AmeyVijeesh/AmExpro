@@ -2,9 +2,9 @@ import React from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-import "./item.css"; // Import the CSS file
+import "./item.css";
 
-const ItemDetail = ({ addToCart }) => {
+const ItemDetail = ({ addToCart, user }) => {
   const [open, setOpen] = React.useState(false);
   const [itemName, setItemName] = React.useState();
   const navigate = useNavigate();
@@ -27,8 +27,13 @@ const ItemDetail = ({ addToCart }) => {
   };
 
   const handleAddToCart = () => {
-    addToCart(item); // Pass the item object directly
-    handleSnackBarCall(item.name); // Update this line to pass the item name
+    if (!user) {
+      alert("Please login to continue.");
+      navigate("/login");
+    } else {
+      addToCart(item);
+      handleSnackBarCall(item.name);
+    }
   };
 
   const handleSnackBarClose = (event, reason) => {
