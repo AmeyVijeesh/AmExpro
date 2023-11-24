@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./items.css";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import items from "./itemsData.js";
 import Snackbar from "@mui/material/Snackbar";
@@ -10,10 +11,11 @@ const Items = ({ cart, addToCart, user }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedSortOption, setSelectedSortOption] = useState("");
   const [itemName, setItemName] = useState("");
-  const itemsPerPage = 12; // Number of items to display per page
+  const itemsPerPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredItems, setFilteredItems] = useState(items);
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleSnackBarCall = (item) => {
     setOpen(true);
@@ -27,9 +29,16 @@ const Items = ({ cart, addToCart, user }) => {
     setOpen(false);
   };
   const handleAddToCart = (item) => {
-    if (user) {
-      addToCart(item);
+    if (!user) {
+      console.log("User is not logged in. Redirecting to login.");
+      alert("Please login to continue.");
+      console.log("User:", user);
+
+      navigate("/login");
     } else {
+      console.log("User is logged in. Adding to cart.");
+      console.log("User:", user);
+
       addToCart(item);
       handleSnackBarCall(item.name);
     }
@@ -42,9 +51,8 @@ const Items = ({ cart, addToCart, user }) => {
     setFilteredItems(filtered);
   };
   const handleRemoveFromCart = (item) => {
-    // Filter out the item to remove from the cart
     const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
-    addToCart(updatedCart); // Update the cart state
+    addToCart(updatedCart);
   };
 
   const handleCategoryChange = (category) => {
@@ -76,8 +84,6 @@ const Items = ({ cart, addToCart, user }) => {
 
     setFilteredItems(sortedItems);
   };
-
-  // Calculate the index range of items to display for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const itemsToDisplay = filteredItems.slice(startIndex, endIndex);
@@ -104,11 +110,11 @@ const Items = ({ cart, addToCart, user }) => {
       <div className="filterSortSelectDiv">
         <div
           style={{
-            width: "50%", // Set the width to 50% for each column
+            width: "50%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center", // Center content vertically
-            alignItems: "center", // Center content horizontally
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <p className="filterSortSelectText">Filter</p>
@@ -130,11 +136,11 @@ const Items = ({ cart, addToCart, user }) => {
         </div>
         <div
           style={{
-            width: "50%", // Set the width to 50% for each column
+            width: "50%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center", // Center content vertically
-            alignItems: "center", // Center content horizontally
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <p className="filterSortSelectText">Sort by: </p>
