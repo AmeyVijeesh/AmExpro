@@ -50,6 +50,8 @@ const Items = ({ cart, addToCart, user }) => {
     );
     setFilteredItems(filtered);
   };
+
+  {/* TODO: Add this implementation */}
   const handleRemoveFromCart = (item) => {
     const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
     addToCart(updatedCart);
