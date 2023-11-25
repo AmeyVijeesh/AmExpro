@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { db } from "../firebase";
 import img from "./images/bannerimage.png";
 import "./home.css";
-import items from "./itemsData"; // Import the items data
+import items from "./itemsData";
 
 const Home = () => {
   const [displayedItems, setDisplayedItems] = useState([]);
