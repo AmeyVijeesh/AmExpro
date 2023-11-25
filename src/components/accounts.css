@@ -2,7 +2,7 @@
 .bady {
   height: 100vh;
   margin: 0;
-  background-color: #f0f0f0;
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
 .login-container {
   height: 100vh;
   margin: 0;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,7 @@
   color: #ffffff;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("https://i.pinimg.com/736x/5d/73/ea/5d73eaabb25e3805de1f8cdea7df4a42--tumblr-backgrounds-iphone-phone-wallpapers-iphone-wallaper-tumblr.jpg");
+  background-image: url("https://th.bing.com/th/id/R.76fe2afc065d800c4df57ab3fa174c47?rik=rnFoo%2fJ%2bGrZ6wQ&riu=http%3a%2f%2fevolutionarydesigns.net%2fphotography%2fwp-content%2fuploads%2f2011%2f10%2fstore-1-vintage-2.jpg&ehk=ETHaIJufXT%2b54mshlzPrHH2B%2funrjDK2F1jOU24%2b3vM%3d&risl=&pid=ImgRaw&r=0");
   overflow: hidden;
 }
 .box-form .left .overlay {
@@ -205,16 +205,12 @@ label input[type="checkbox"] {
   background-color: #000;
 }
 
-/* ... (Previous styles) */
-
 .box-form .right h5 {
   margin-bottom: 200px;
-  margin-top: 100px; /* Add top margin to create space */
+  margin-top: 100px;
 }
 
 .box-form .right p {
   font-size: 14px;
   color: #b0b3b9;
 }
-
-/* ... (Remaining styles) */
