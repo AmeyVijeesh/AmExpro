@@ -12,6 +12,7 @@ import ItemDetail from "./components/item.jsx";
 import ForgotPassword from "./components/password";
 import Checkout from "./components/checkout.jsx";
 import UserCart from "./UserCart";
+import PageNotFound from "./components/404.jsx";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import "mdbootstrap/css/mdb.min.css";
@@ -36,6 +37,7 @@ function App() {
         <section>
           <Routes>
             <Route path="/home" element={<Home />} />
+            <Route path="*" element={<PageNotFound />} />
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/signup" element={<Signup />} />
