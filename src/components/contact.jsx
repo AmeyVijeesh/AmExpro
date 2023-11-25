@@ -1,3 +1,5 @@
+{/*Should improvise this, too ;) */}
+
 import React from "react";
 
 const Contact = () => {
