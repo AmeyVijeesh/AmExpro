@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase.js";
 import Home from "./components/home";
 import Signup from "./components/signup";
+import About from "./components/about.jsx";
 import Login from "./components/login";
 import Navbar from "./components/navbar";
 import Items from "./components/items.jsx";
@@ -36,6 +37,7 @@ function App() {
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />{" "}
             <Route
