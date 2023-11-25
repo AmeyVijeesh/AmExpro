@@ -1,12 +1,19 @@
 import React from "react";
 import { useNavigate, NavLink } from "react-router-dom";
-import "./Cart.css"; // Import your CSS file
+import "./Cart.css";
 
 const Cart = ({ cart, removeFromCart }) => {
   const navigate = useNavigate();
 
   const onCheckoutClick = () => {
-    navigate("/checkout");
+    const cartLength = cart.length;
+    const total = calculateTotal();
+    navigate("/checkout", { state: { total, cartLength } });
+  };
+
+  const calculateTotal = () => {
+    const total = cart.reduce((acc, item) => acc + Number(item.price), 0);
+    return Number(total.toFixed(2));
   };
 
   return (
@@ -33,6 +40,7 @@ const Cart = ({ cart, removeFromCart }) => {
             Checkout
           </button>
           <p className="total-items">Total items: {cart.length}</p>
+          <p className="total-items">Total amount: ${calculateTotal()}</p>
         </div>
       )}
 
