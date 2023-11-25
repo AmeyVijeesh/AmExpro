@@ -8,6 +8,7 @@ import Login from "./components/login";
 import Navbar from "./components/navbar";
 import Items from "./components/items.jsx";
 import Cart from "./components/cart.jsx";
+import Contact from "./components/contact.jsx";
 import ItemDetail from "./components/item.jsx";
 import ForgotPassword from "./components/password";
 import Checkout from "./components/checkout.jsx";
@@ -38,6 +39,7 @@ function App() {
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="*" element={<PageNotFound />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/signup" element={<Signup />} />
