@@ -13,6 +13,7 @@ const PageNotFound = () => {
       }}
     >
       <div>
+        {/* Nice dog :) */}
         <img src={img} alt="" style={{ height: "200px", width: "200px" }} />
         <h3>
           Oops! Looks like you got lost. <NavLink>Go back home</NavLink>
