@@ -145,6 +145,7 @@ const ItemDetail = ({ addToCart, user }) => {
           Added {itemName} to your cart!
         </MuiAlert>
       </Snackbar>
+      {/*TODO: add remove from cart*/}
     </div>
   );
 };
