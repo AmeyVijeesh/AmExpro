@@ -5,4 +5,8 @@ Responsive, mobile-friendly and database-integrated.
 
 Firebase for authentication, React Router for pages.
 
-# TODO
+# TODO:
+- Add a proper payment method (maybe Stripe?)
+- Complete some pages
+- Optimize the website
+
