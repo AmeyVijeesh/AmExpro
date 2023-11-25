@@ -1,3 +1,5 @@
+{/* I was too lazy to continue :p. Might continue later*/}
+
 import React from "react";
 
 const About = () => {
