@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { auth, googleAuthProvider } from "../firebase"; // Import googleAuthProvider
+import { auth, googleAuthProvider } from "../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./accounts.css";
 
@@ -9,7 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [error, setError] = useState(null); // Add a state for error messages
+  const [error, setError] = useState(null);
 
   const onLogin = (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ const Login = () => {
         navigate("/home");
       })
       .catch((error) => {
-        setError(error.message); // Set the error message
+        setError(error.message);
       });
   };
 
@@ -33,7 +33,7 @@ const Login = () => {
         console.log(user);
       })
       .catch((error) => {
-        setError(error.message); // Set the error message
+        setError(error.message);
       });
   };
 
