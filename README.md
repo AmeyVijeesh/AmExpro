@@ -10,6 +10,7 @@ Firebase for authentication, React Router for pages.
 
 # TODO:
 - Add a proper payment method (maybe Stripe?)
-- Complete some pages
+- Complete some pages and functions
 - Optimize the website
+- Improvise UI
 
